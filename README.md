@@ -73,4 +73,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Packages:
 
 - ShadCN : reuseable components. (button, )
--
+- React-icons: icon PKG.
+- 
