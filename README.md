@@ -72,6 +72,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Packages:
 
-- ShadCN : reuseable components. (button, )
+- ShadCN : reuseable components. (button, form, input, )
 - React-icons: icon PKG.
-- 
+- Zod: validator
+- React-hook-form: Simplifies the creation and validation of forms in React.
+-
