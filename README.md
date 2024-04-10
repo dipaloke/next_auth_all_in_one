@@ -69,6 +69,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Change password with old password confirmation in Settings page
 - Enable/disable two-factor auth in Settings page
 - Change user role in Settings page (for development purposes only)
+- Free Postgres sql DB on [NEON](https://neon.tech/)
 
 ## Packages:
 
@@ -76,4 +77,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - React-icons: icon PKG.
 - Zod: validator
 - React-hook-form: Simplifies the creation and validation of forms in React.
+- Prisma: ORM
+- @prisma/client: Auto-generated query builder that enables type-safe database access.
+- @auth/prisma-adapter: ([Auth.js for prisma](https://authjs.dev/reference/adapter/prisma))
 -
