@@ -80,4 +80,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Prisma: ORM
 - @prisma/client: Auto-generated query builder that enables type-safe database access.
 - @auth/prisma-adapter: ([Auth.js for prisma](https://authjs.dev/reference/adapter/prisma))
+- Bcrypt & @types/bcrypt: A library to help you hash passwords.
 -
