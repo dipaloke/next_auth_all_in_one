@@ -100,9 +100,9 @@ export const LoginForm = () => {
           <FormSuccess message={success} />
           <Button type="submit" className="w-full">
             {isPending ? (
-              <span className="flex items-center">
+              <span className="flex items-center space-x-2">
                 <CircleIcon className="h-5 w-5 animate-spin" />
-                Logging in...
+                <span>Logging in...</span>
               </span>
             ) : (
               "Login"

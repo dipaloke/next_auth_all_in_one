@@ -37,7 +37,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Key Features:
 
-- Next-auth v5 (Auth.js)
+- [Next-auth v5](https://authjs.dev/guides/upgrade-to-v5) (Auth.js)
 - Next.js 14 with server actions
 - Credentials Provider
 - OAuth Provider (Social login with Google & GitHub)
@@ -70,6 +70,9 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Enable/disable two-factor auth in Settings page
 - Change user role in Settings page (for development purposes only)
 - Free Postgres sql DB on [NEON](https://neon.tech/)
+- Our entire application is protected (user needs to-be logged in ) except lending page, login, sign-up page.
+- Logged in users cant access login page or sign-up page. gets redirected if tried to access.
+-
 
 ## Packages:
 
@@ -81,4 +84,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - @prisma/client: Auto-generated query builder that enables type-safe database access.
 - @auth/prisma-adapter: ([Auth.js for prisma](https://authjs.dev/reference/adapter/prisma))
 - Bcrypt & @types/bcrypt: A library to help you hash passwords.
+- Next-auth@beta: V5 of nextAuth.
 -
