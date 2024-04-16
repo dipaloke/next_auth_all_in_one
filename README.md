@@ -72,7 +72,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Free Postgres sql DB on [NEON](https://neon.tech/)
 - Our entire application is protected (user needs to-be logged in ) except lending page, login, sign-up page.
 - Logged in users cant access login page or sign-up page. gets redirected if tried to access.
--
+- People registered with OAuth providers(google/github) don't need email verification (field auto set for them)
+- Here email verification is a Date type not a boolean. So we can see ata a glace when an user verified his/her email.
 
 ## Packages:
 

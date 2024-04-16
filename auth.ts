@@ -24,6 +24,22 @@ declare module "next-auth" {
 }
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
+  pages: {
+    //Oauth redirects users to this page.
+    signIn: "/auth/login",
+    //if something breaks Oauth will show the following
+    // custom error page instead of its default
+    error: "/auth/error",
+  },
+  events: {
+    async linkAccount({ user }) {
+      await db.user.update({
+        where: { id: user.id },
+        //auto updating the emailVerified filed for users using Oauth
+        data: { emailVerified: new Date() },
+      });
+    },
+  },
   callbacks: {
     // async signIn({ user }) {
     //   const existingUser = await getUserById(user.id as string);
