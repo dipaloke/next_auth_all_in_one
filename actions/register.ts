@@ -4,6 +4,8 @@ import * as z from "zod";
 import bcrypt from "bcryptjs";
 import { db } from "@/lib/db";
 import { getUserByEmail } from "@/data/user";
+import { generateVerificationToken } from "@/lib/tokens";
+import { sendVerificationEmail } from "@/lib/mail";
 
 export const register = async (values: z.infer<typeof RegisterSchema>) => {
   //server side validation is necessary coz clint side validation could be forged
@@ -30,8 +32,10 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
       password: hashedPassword,
     },
   });
+  const verificationToken = await generateVerificationToken(email);
 
-  //TODO: Send verification token email.
+  //Send verification token email.
+  await sendVerificationEmail(verificationToken.email, verificationToken.token);
 
   return {
     success: "Account is created! Check your email to verify your account.",

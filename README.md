@@ -73,7 +73,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Our entire application is protected (user needs to-be logged in ) except lending page, login, sign-up page.
 - Logged in users cant access login page or sign-up page. gets redirected if tried to access.
 - People registered with OAuth providers(google/github) don't need email verification (field auto set for them)
-- Here email verification is a Date type not a boolean. So we can see ata a glace when an user verified his/her email.
+- Here email verification is a Date type not a boolean. So we can see at a glace when an user verified his/her email.
+- User can regenerate verify mail by trying to login with a registered but not verified email.
 
 ## Packages:
 
@@ -86,4 +87,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - @auth/prisma-adapter: ([Auth.js for prisma](https://authjs.dev/reference/adapter/prisma))
 - Bcrypt & @types/bcrypt: A library to help you hash passwords.
 - Next-auth@beta: V5 of nextAuth.
--
+- UUID & @types/uuid: For the creation of RFC4122 UUIDs. Here used for generating verification tokens.
+- Resend: For sending verification email.

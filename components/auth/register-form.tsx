@@ -119,7 +119,8 @@ export const RegisterForm = () => {
           <Button type="submit" className="w-full">
             {isPending ? (
               <span className="flex items-center justify-center space-x-2">
-                <CircleIcon className="h-4 w-4 animate-spin" /> Creating...
+                <CircleIcon className="h-4 w-4 animate-spin" />
+                <span>Creating...</span>
               </span>
             ) : (
               "Create an account"
