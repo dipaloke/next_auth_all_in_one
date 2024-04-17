@@ -89,3 +89,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Next-auth@beta: V5 of nextAuth.
 - UUID & @types/uuid: For the creation of RFC4122 UUIDs. Here used for generating verification tokens.
 - Resend: For sending verification email.
+- react-spinners: A collection of loading spinners with React.js based on Halogen.
