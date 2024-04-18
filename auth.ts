@@ -11,6 +11,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import { db } from "./lib/db";
 import { getUserById } from "./data/user";
 import { UserRole } from "@prisma/client";
+import { getTwoFactorConfirmationByUserId } from "./data/two-factor-confirmation";
 
 //without this module typescript will show error for user.role in session callback.
 //see documentation in https://authjs.dev/getting-started/typescript
@@ -51,7 +52,19 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       //prevent signIn without email Verification
       if (!existingUser?.emailVerified) return false;
 
-      //TODO: add 2FA check
+      //add 2FA check
+
+      if (existingUser.isTwoFactorEnabled) {
+        const twoFactorConfirmation = await getTwoFactorConfirmationByUserId(
+          existingUser.id
+        );
+        if (!twoFactorConfirmation) return false;
+
+        //delete two factor confirmation for next sign-in
+        await db.twoFactorConfirmation.delete({
+          where: { id: twoFactorConfirmation.id },
+        });
+      }
 
       return true;
     },

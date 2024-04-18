@@ -75,6 +75,8 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - People registered with OAuth providers(google/github) don't need email verification (field auto set for them)
 - Here email verification is a Date type not a boolean. So we can see at a glace when an user verified his/her email.
 - User can regenerate verify mail by trying to login with a registered but not verified email.
+- 2FA will expire every time a user loges in. Means user need to authenticate every time he/she loges in.
+- 2FA code will expire after 15 minutes the 6 digit authentication code is sent to email.
 
 ## Packages:
 
