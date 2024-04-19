@@ -15,7 +15,6 @@ import { ExitIcon } from "@radix-ui/react-icons";
 
 export const UserButton = () => {
   const user = useCurrentUser();
-  console.log({ user: user });
 
   return (
     <DropdownMenu>

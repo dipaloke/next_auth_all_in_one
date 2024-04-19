@@ -5,7 +5,7 @@
  * 3. add the userId(sub from token) & user role to our session.
  */
 
-import NextAuth, { type DefaultSession } from "next-auth";
+import NextAuth from "next-auth";
 import authConfig from "./auth.config";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { db } from "./lib/db";
@@ -15,14 +15,6 @@ import { getTwoFactorConfirmationByUserId } from "./data/two-factor-confirmation
 
 //without this module typescript will show error for user.role in session callback.
 //see documentation in https://authjs.dev/getting-started/typescript
-
-declare module "next-auth" {
-  interface Session {
-    user: {
-      role: UserRole;
-    } & DefaultSession["user"];
-  }
-}
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
   pages: {
@@ -76,6 +68,12 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       if (token.role && session.user) {
         session.user.role = token.role as UserRole;
       }
+
+      //adding 2FA into session
+      if (typeof token.isTwoFactorEnabled === "boolean" && session.user) {
+        session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean;
+      }
+
       return session;
     },
     async jwt({ token }) {
@@ -89,6 +87,9 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
 
       //adding role into token
       token.role = existingUser.role;
+
+      //adding 2FA enabled or not into token
+      token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
 
       return token;
     },
