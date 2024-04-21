@@ -26,6 +26,9 @@ import Link from "next/link";
 export const LoginForm = () => {
   //to read the Oauth error from the address bar
   const searchParams = useSearchParams();
+
+  //after login callbackUrl will redirect user from where user logged out
+  const callbackUrl = searchParams.get("callbackUrl");
   const urlError =
     searchParams.get("error") === "OAuthAccountNotLinked"
       ? "Email is already in use with different provider!"
@@ -52,7 +55,7 @@ export const LoginForm = () => {
     setSuccess("");
 
     startTransition(() => {
-      login(values)
+      login(values, callbackUrl)
         .then((data) => {
           if (data?.error) {
             form.reset();

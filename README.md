@@ -76,11 +76,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - Here email verification is a Date type not a boolean. So we can see at a glace when an user verified his/her email.
 - User can regenerate verify mail by trying to login with a registered but not verified email.
 - 2FA will expire every time a user loges in. Means user need to authenticate every time he/she loges in.
-- 2FA code will expire after 15 minutes the 6 digit authentication code is sent to email.
+- 2FA code will expire after 15 minutes the 6 digit authentication code will be sent to email.
 
 ## Packages:
 
-- ShadCN : reuseable components. (button, form, input, dropdown-menu, avatar, badge, sonner )
+- ShadCN : reuseable components. (button, form, input, dropdown-menu, avatar, badge, sonner, switch, select, dialog)
 - React-icons: icon PKG.
 - Zod: validator
 - React-hook-form: Simplifies the creation and validation of forms in React.
@@ -92,3 +92,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - UUID & @types/uuid: For the creation of RFC4122 UUIDs. Here used for generating verification tokens.
 - Resend: For sending verification email.
 - react-spinners: A collection of loading spinners with React.js based on Halogen.
+
+## improvement:
+
+- Enable option to send verification email again after 3 minutes with a clock counting the time.

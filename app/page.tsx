@@ -24,7 +24,8 @@ export default async function Home() {
           A simple authentication service by Dipaloke Biswas.
         </p>
         <div>
-          <LoginButton>
+          {/* mode can be modal or redirect */}
+          <LoginButton mode="modal" asChild>
             <Button variant="secondary" size="lg">
               Sign In
             </Button>
