@@ -236,6 +236,7 @@ const SettingsPage = () => {
                             disabled={isPending}
                             checked={field.value}
                             onCheckedChange={field.onChange}
+                            className="data-[state=checked]:bg-emerald-500 data-[state=unchecked]:bg-red-500"
                           />
                         </FormControl>
                       </FormItem>
